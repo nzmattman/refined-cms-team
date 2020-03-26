@@ -1,11 +1,11 @@
 <?php
 
-namespace RefinedDigital\Blog\Database\Seeds;
+namespace RefinedDigital\Team\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class DatabaseSeeder extends Seeder
+class TeamDatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(TemplatesTableSeeder::class);
+        $this->call(TeamTemplatesTableSeeder::class);
     }
 }

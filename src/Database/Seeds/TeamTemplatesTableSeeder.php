@@ -1,12 +1,12 @@
 <?php
 
-namespace RefinedDigital\Blog\Database\Seeds;
+namespace RefinedDigital\Team\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use DB;
 
-class TemplatesTableSeeder extends Seeder
+class TeamTemplatesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -49,7 +49,7 @@ class TeamServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../../../config/team.php', 'team');
 
         $menuConfig = [
-            'order' => 200,
+            'order' => 205,
             'name' => 'Team',
             'icon' => 'fas fa-users',
             'route' => 'team',

@@ -39,7 +39,7 @@ class TeamController extends CoreController
             'edit'      => 'refined.team.edit',
             'destroy'   => 'refined.team.destroy'
         ];
-        $table->sortable = false;
+        $table->sortable = true;
 
         $this->table = $table;
     }

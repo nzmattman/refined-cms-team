@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use RefinedDigital\CMS\Modules\Core\Models\CoreModel;
 use RefinedDigital\CMS\Modules\Core\Traits\IsArticle;
 use RefinedDigital\CMS\Modules\Pages\Traits\IsPage;
+use Spatie\EloquentSortable\Sortable;
 
-class Team extends CoreModel
+class Team extends CoreModel implements Sortable
 {
     use SoftDeletes, IsPage, IsArticle;
 
@@ -30,6 +31,7 @@ class Team extends CoreModel
                 [
                     [ 'label' => 'Active', 'name' => 'active', 'required' => true, 'type' => 'select', 'options' => [1 => 'Yes', 0 => 'No'] ],
                     [ 'label' => 'Name', 'name' => 'name', 'required' => true, 'attrs' => ['v-model' => 'content.name', '@keyup' => 'updateSlug' ] ],
+                    [ 'label' => 'Image', 'name' => 'image', 'required' => true, 'hideLabel' => true, 'type' => 'image' ],
                 ],
                 [
                     [ 'label' => 'Title', 'name' => 'title', 'required' => false, ],

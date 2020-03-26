@@ -4,7 +4,6 @@ namespace RefinedDigital\Team\Module\Http\Repositories;
 
 use RefinedDigital\Team\Module\Models\Team;
 use RefinedDigital\CMS\Modules\Core\Http\Repositories\CoreRepository;
-use RefinedDigital\CMS\Modules\Tags\Models\Tag;
 
 class TeamRepository extends CoreRepository
 {

@@ -41,6 +41,7 @@ class Install extends Command
     public function handle()
     {
         $this->migrate();
+        $this->seed();
         $this->publish();
         $this->info('Team has been successfully installed');
     }
@@ -52,6 +53,15 @@ class Install extends Command
         Artisan::call('migrate', [
             '--path' => 'vendor/refineddigital/cms-team/src/Database/Migrations',
             '--force' => 1,
+        ]);
+    }
+
+    protected function seed()
+    {
+        $this->output->writeln('<info>Seeding the database</info>');
+        Artisan::call('db:seed', [
+            '--class' => '\\RefinedDigital\\Teams\\Database\\Seeds\\TeamDatabaseSeeder',
+            '--force' => 1
         ]);
     }
 
