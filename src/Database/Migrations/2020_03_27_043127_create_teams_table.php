@@ -20,8 +20,8 @@ class CreateTeamsTable extends Migration
             $table->boolean('active')->default(1);
             $table->integer('position');
             $table->string('name');
-            $table->string('title')->nullable();
-            $table->string('sub_title')->nullable();
+            $table->string('job_title_1')->nullable();
+            $table->string('job_title_2')->nullable();
             $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
             $table->string('fax')->nullable();

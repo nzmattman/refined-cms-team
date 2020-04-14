@@ -16,7 +16,7 @@ class Team extends CoreModel implements Sortable
     protected $order = [ 'column' => 'position', 'direction' => 'asc'];
 
     protected $fillable = [
-        'active', 'position', 'name', 'image', 'content', 'title','sub_title','phone','mobile','fax','email'
+        'active', 'position', 'name', 'image', 'content', 'job_title_1','job_title_2','phone','mobile','fax','email'
     ];
 
     /**
@@ -34,8 +34,8 @@ class Team extends CoreModel implements Sortable
                     [ 'label' => 'Image', 'name' => 'image', 'required' => true, 'hideLabel' => true, 'type' => 'image' ],
                 ],
                 [
-                    [ 'label' => 'Title', 'name' => 'title', 'required' => false, ],
-                    [ 'label' => 'Sub Title', 'name' => 'sub_title', 'required' => false, ],
+                    [ 'label' => 'Title', 'name' => 'job_title_1', 'required' => false, ],
+                    [ 'label' => 'Title 2', 'name' => 'job_title_2', 'required' => false, ],
                     [ 'label' => 'Email', 'name' => 'email', 'required' => false, 'type' => 'email' ],
                 ],
                 [
