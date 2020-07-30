@@ -32,7 +32,7 @@ class TeamController extends CoreController
         $table->fields = [
             (object) [ 'name' => '#', 'field' => 'id', 'sortable' => true, 'classes' => ['data-table__cell--id']],
             (object) [ 'name' => 'Name', 'field' => 'name', 'sortable' => true],
-            (object) [ 'name' => 'Title', 'field' => 'title', 'sortable' => true],
+            (object) [ 'name' => 'Title', 'field' => 'job_title_1', 'sortable' => true],
             (object) [ 'name' => 'Active', 'field' => 'active', 'type'=> 'select', 'options' => [1 => 'Yes', 0 => 'No'], 'sortable' => true, 'classes' => ['data-table__cell--active']],
         ];
         $table->routes = (object) [
@@ -54,6 +54,13 @@ class TeamController extends CoreController
     {
         // get the instance
         $data = $this->model::findOrFail($item);
+
+        // todo: make this more dynamic
+        if (isset($data->data) && is_object($data->data)) {
+            foreach ($data->data as $key => $value) {
+                $data->{'data__'.$key} = $value;
+            }
+        }
 
         return parent::edit($data);
     }
