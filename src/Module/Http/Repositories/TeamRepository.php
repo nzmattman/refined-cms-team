@@ -15,19 +15,23 @@ class TeamRepository extends CoreRepository
 
     public function getForFront($perPage = 5)
     {
-        return $this->model::whereActive(1)
+        return $this->model::active()
             ->search(['name','content'])
+            ->ordered()
             ->paging($perPage);
     }
 
     public function getAllForFront()
     {
-        return $this->model::whereActive(1)->get();
+        return $this->model::active()
+                            ->ordered()
+                            ->get();
     }
 
     public function getForHomePage($limit = 6)
     {
-        return $this->model::whereActive(1)
+        return $this->model::active()
+            ->ordered()
             ->limit($limit)
             ->get();
     }
