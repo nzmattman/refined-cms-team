@@ -60,7 +60,7 @@ class Install extends Command
     {
         $this->output->writeln('<info>Seeding the database</info>');
         Artisan::call('db:seed', [
-            '--class' => '\\RefinedDigital\\Teams\\Database\\Seeds\\TeamDatabaseSeeder',
+            '--class' => '\\RefinedDigital\\Team\\Database\\Seeds\\TeamDatabaseSeeder',
             '--force' => 1
         ]);
     }
