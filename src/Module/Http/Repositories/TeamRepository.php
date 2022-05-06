@@ -36,10 +36,16 @@ class TeamRepository extends CoreRepository
             ->get();
     }
 
-    public function getForSelect()
+    public function getForSelect($pleaseSelect = false)
     {
         $posts = Team::active()->orderBy('name', 'asc')->get();
         $data = [];
+        if ($pleaseSelect) {
+            $data[] = [
+                'id' => 0,
+                'name' => 'Please Select'
+            ];
+        }
         if ($posts->count()) {
             foreach ($posts as $post) {
                 $data[] = [
