@@ -38,7 +38,7 @@ class TeamServiceProvider extends ServiceProvider
         ], 'team');
 
         $repo = new TeamRepository();
-        $data = $repo->getForSelect();
+        $data = $repo->getForSelect(true);
         session()->put('team', $data);
     }
 
