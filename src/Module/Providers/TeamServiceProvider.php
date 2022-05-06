@@ -7,6 +7,7 @@ use RefinedDigital\Team\Commands\Install;
 use RefinedDigital\CMS\Modules\Core\Aggregates\PackageAggregate;
 use RefinedDigital\CMS\Modules\Core\Aggregates\ModuleAggregate;
 use RefinedDigital\CMS\Modules\Core\Aggregates\RouteAggregate;
+use RefinedDigital\Team\Module\Http\Repositories\TeamRepository;
 
 class TeamServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,10 @@ class TeamServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../../config/team.php' => config_path('team.php'),
         ], 'team');
+
+        $repo = new TeamRepository();
+        $data = $repo->getForSelect();
+        session()->put('team', $data);
     }
 
     /**
