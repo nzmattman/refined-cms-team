@@ -37,9 +37,13 @@ class TeamServiceProvider extends ServiceProvider
             __DIR__.'/../../../config/team.php' => config_path('team.php'),
         ], 'team');
 
-        $repo = new TeamRepository();
-        $data = $repo->getForSelect(true);
-        session()->put('team', $data);
+        try {
+            $repo = new TeamRepository();
+            $data = $repo->getForSelect(true);
+            session()->put('team', $data);
+        } catch (\Exception $e) {
+
+        }
     }
 
     /**
