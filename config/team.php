@@ -10,4 +10,16 @@ return [
     ],
 
     'details_template_id' => '__ID__',
+
+    'title2' => true,
+
+    'intro' => true,
+
+    'email' => true,
+
+    'phone' => true,
+
+    'mobile' => true,
+
+    'fax' => true,
 ];

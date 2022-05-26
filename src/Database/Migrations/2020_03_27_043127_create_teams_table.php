@@ -27,6 +27,7 @@ class CreateTeamsTable extends Migration
             $table->string('fax')->nullable();
             $table->string('email')->nullable();
             $table->integer('image')->nullable();
+            $table->longText('intro')->nullable();
             $table->longText('content')->nullable();
             $table->json('data')->nullable();
         });
