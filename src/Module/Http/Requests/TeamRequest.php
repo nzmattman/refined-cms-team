@@ -24,11 +24,21 @@ class TeamRequest extends FormRequest
     public function rules()
     {
 
+        $config = config('team');
+
         $args = [
             'name'                => ['required' => 'required'],
             'content'             => ['required' => 'required'],
             'image'               => ['required' => 'required'],
         ];
+
+        if (isset($config['fields']) && is_array($config['fields']) && sizeof($config['fields'])) {
+            foreach ($config['fields'] as $key => $field) {
+                if (isset($field['required']) && !$field['required'] && isset($args[$key])) {
+                    unset($args[$key]);
+                }
+            }
+        }
 
         // return the results to set for validation
         return $args;
