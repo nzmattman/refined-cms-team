@@ -40,6 +40,10 @@ class TeamRequest extends FormRequest
             }
         }
 
+        if (isset($config['content']) && !$config['content'] && isset($args['content'])) {
+            unset($args['content']);
+        }
+
         // return the results to set for validation
         return $args;
     }

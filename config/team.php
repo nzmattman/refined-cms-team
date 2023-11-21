@@ -11,6 +11,8 @@ return [
 
     'details_template_id' => '__ID__',
 
+    'content' => true,
+
     'title2' => true,
 
     'intro' => true,

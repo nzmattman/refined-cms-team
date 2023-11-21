@@ -52,11 +52,6 @@ class Team extends CoreModel implements Sortable
                                         'label'    => 'Title', 'name' => 'job_title_1', 'required' => false,
                                     ],
                                 ],
-                                [
-                                    [
-                                        'label'    => 'Content', 'name' => 'content', 'required' => true, 'type' => 'richtext'
-                                    ],
-                                ],
                             ]
                         ]
                     ]
@@ -113,11 +108,14 @@ class Team extends CoreModel implements Sortable
         'label' => 'Fax', 'name' => 'fax', 'required' => false, 'type'  => 'tel'
     ];
 
+    protected $blockContent = [
+        'label'    => 'Content', 'name' => 'content', 'required' => true, 'type' => 'richtext'
+    ];
+
     public function setFormFields()
     {
         $config      = config('team');
         $fields      = $this->formFields;
-
         if (isset($config['email']) && $config['email']) {
             $fields[0]['sections']['right']['blocks'][1]['fields'][] = [$this->blockEmail];
         }
@@ -137,10 +135,15 @@ class Team extends CoreModel implements Sortable
         if (isset($config['title2']) && $config['title2']) {
             array_splice($fields[0]['sections']['left']['blocks'][0]['fields'][1], 1, 0, [$this->blockTitle2]);
         }
+        
+        if (isset($config['content']) && $config['content']) {
+            array_splice($fields[0]['sections']['left']['blocks'][0]['fields'], 2, 0, [[$this->blockContent]]);
+        }
 
         if (isset($config['intro']) && $config['intro']) {
             array_splice($fields[0]['sections']['left']['blocks'][0]['fields'], 2, 0, [[$this->blockIntro]]);
         }
+
 
         return $fields;
     }
