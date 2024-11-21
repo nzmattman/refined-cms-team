@@ -135,7 +135,7 @@ class Team extends CoreModel implements Sortable
         if (isset($config['title2']) && $config['title2']) {
             array_splice($fields[0]['sections']['left']['blocks'][0]['fields'][1], 1, 0, [$this->blockTitle2]);
         }
-        
+
         if (isset($config['content']) && $config['content']) {
             array_splice($fields[0]['sections']['left']['blocks'][0]['fields'], 2, 0, [[$this->blockContent]]);
         }
